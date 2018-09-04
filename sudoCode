@@ -1,0 +1,62 @@
+public class Simple
+{
+String simpleText; 
+Number simpleNumber; 
+Boolean simpleTruth; 
+Integer[] simpleInitVals; 
+int simpleDepth;
+
+
+Simple()
+{
+simpleText = "Standard"
+simpleNumber = 1.0
+simpleTruth = true
+simpleInitVals = [1]
+simpleDepth = 0
+}
+
+Simple​(String text, Number number, Boolean truth, Integer[] initVals, int depth)
+{
+simpleText = text
+simpleNumber = number
+simpleTruth = truth
+simpleInitVals = initVals
+simpleDepth = depth
+}
+
+public void flip()
+{
+simpleTruth = !simpleTruth
+}
+
+public Integer nextInSequence()
+{
+return 3;
+}
+
+public Number number()
+{
+return simpleNumber;
+}
+
+public String text()
+{
+return simpleText;
+}
+
+public String toString()
+{
+output = ""
+//output = boolean to string
+//outout += conversion number to string
+//output += text
+return output;
+}
+
+public Boolean truth()
+{
+return simpleTruth;
+}
+
+}
