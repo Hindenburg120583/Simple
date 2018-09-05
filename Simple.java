@@ -1,5 +1,5 @@
 //TODO: add author tag
-
+@author: Justin Wu
 public class Simple {
   
   private String text;
@@ -28,7 +28,16 @@ public class Simple {
                  Boolean truth,
                  Integer[] initVals,
                  int depth ) {
-    //TODO
+    text = text;
+    number = number;
+    truth = truth;
+    initVals = initVals;
+    depth = depth;
+    lastVals = new Integer[depth]; 
+    
+    for(int i = 0; i < depth; i++) {
+      lastVals[i] = initVals[initVals.length - depth + i];
+    }
   }
 
   public Boolean truth() {
@@ -69,8 +78,14 @@ public class Simple {
   }
 
   public String toString() {
-    //TODO
-    return ""; //remove
+    String output = "";
+    String spacer = ", ";
+    output += String.valueOf(truth);
+    output += spacer;
+    output += String.valueOf(number);
+    output += spacer;
+    output += text;
+    return output;
   } 
 
   public static void main( String args[] ) {
