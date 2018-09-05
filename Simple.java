@@ -11,11 +11,11 @@ public class Simple {
 
   public Simple() {
     text = "text";
-    number = new Number(0);
+    number = 0;
     truth = true;
-    initVals = {1, 1, 2};
+    initVals = new Integer[]{1, 1, 2};
     depth = 2;
-    lastValues = new Integer[depth]; //TODO: does this work?
+    lastValues = new Integer[depth]; 
   }
 
   public Simple( String text, 
@@ -44,9 +44,13 @@ public class Simple {
 
   public Integer nextInSequence() {
     //TODO
+    return -1; //remove
   }
 
   public String toString() {
     //TODO
+    return ""; //remove
   } 
+
+}
   
