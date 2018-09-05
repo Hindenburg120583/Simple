@@ -7,7 +7,8 @@ public class Simple {
   private Boolean truth;
   private Integer[] initVals;
   private int depth;
-  private Integer[] lastValues;
+  private Integer[] lastVals;
+  private int sequenceCalls;
 
   public Simple() {
     text = "text";
@@ -15,7 +16,11 @@ public class Simple {
     truth = true;
     initVals = new Integer[]{1, 1, 2};
     depth = 2;
-    lastValues = new Integer[depth]; 
+    lastVals = new Integer[depth]; 
+    
+    for(int i = 0; i < depth; i++) {
+      lastVals[i] = initVals[initVals.length - depth + i];
+    }
   }
 
   public Simple( String text, 
@@ -43,14 +48,39 @@ public class Simple {
   }
 
   public Integer nextInSequence() {
-    //TODO
-    return -1; //remove
+    //TODO: check if depth > # of initVals and do something?
+    Integer num = 0;
+    
+    if(sequenceCalls + 1 <= initVals.length) {
+      num = initVals[sequenceCalls];
+    } else {
+        for(int i = 0; i < depth; i++) {
+        num += lastVals[i];
+        if(i + 1 >= depth) {
+          lastVals[i] = num;
+        } else {
+          lastVals[i] = lastVals[i + 1];
+        }
+      }
+    }
+    
+    sequenceCalls++;
+    return num;
   }
 
   public String toString() {
     //TODO
     return ""; //remove
   } 
+
+  public static void main( String args[] ) {
+    //Use this main method to test but this should NOT be in the final implementation
+    Simple test = new Simple();
+    
+    for(int i = 0; i < 10; i++) {
+      System.out.println(test.nextInSequence());
+    }
+  }
 
 }
   
